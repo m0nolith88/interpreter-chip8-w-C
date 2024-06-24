@@ -338,10 +338,8 @@ void emulate(){
             break;
         case 0xD000:
             printf("DXYN display/draw\n");
-            short X=(op&0x0F00)>>8;
-            //(memory[PC]&0x0F);
-            short Y=(op&0x00F0)>>4;
-            //(memory[PC+1]&0xF0)>>4;
+            short X=(memory[PC]&0x0F);
+            short Y=(memory[PC+1]&0xF0)>>4;
             short Height=(op&0x000F);
             //(memory[PC+1]&0x0F);
             printf("Paint at:%d,%d height:%d\n",X,Y,Height);
